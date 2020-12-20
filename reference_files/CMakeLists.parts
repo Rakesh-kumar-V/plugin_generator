@@ -1,0 +1,26 @@
+
+
+find_package(gazebo REQUIRED)
+include_directories(${GAZEBO_INCLUDE_DIRS})
+link_directories(${GAZEBO_LIBRARY_DIRS})
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
+
+## include your executable/library generation scripts here
+# your library name: ${PROJECT_NAME_lib.so
+
+add_library(${PROJECT_NAME}_lib SHARED src/<<<File_Name>>>.cc)
+target_link_libraries(${PROJECT_NAME}_lib ${GAZEBO_LIBRARIES}
+ ${catkin_LIBRARIES}
+)
+
+# uncomment the below line if you have a message dependancy
+
+# add_dependencies(${PROJECT_NAME}_lib ${PROJECT_NAME}_gencpp)
+
+## Make the rest of lines at the bottom exterme of your CMakeLists.txt
+
+install(TARGETS ${PROJECT_NAME}_lib
+ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
+)

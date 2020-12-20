@@ -1,0 +1,7 @@
+1) ./generator.bash ---> to execute the bash, for plugin generation
+
+2) ./generator.bash --file /path/to/input_file ---> to automate getting inputs
+    |
+    --> Detailed:
+            1) input_file should contain the inputs to be given to the bash, each in a new line
+            2) better to avoid using space for inputs, use underscore instead.

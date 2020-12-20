@@ -1,0 +1,51 @@
+#include "gazebo/gazebo.hh"
+#include "gazebo/<<<Plugin_Type_Header>>>/<<<Plugin_Type_Header>>>.hh"
+#include "gazebo/common/common.hh"
+#include "ros/ros.h"
+#include "ros/callback_queue.h"
+
+////////////////////////////////////////////////////////////////////
+// Include your Header files here
+////////////////////////////////////////////////////////////////////
+
+namespace gazebo
+{
+
+    class <<<Class_Name>>>Plugin : public <<<Plugin_Type>>>Plugin
+    {
+
+        private:
+           boost::shared_ptr<ros::NodeHandle> rosNode;
+
+        protected:
+
+        public:
+          <<<Class_Name>>>Plugin()
+          {
+
+          }
+
+          ~<<<Class_Name>>>Plugin()
+          {
+
+          }
+          
+          void Load(<<<Plugin_Type_Ptr>>>Ptr _parent, sdf::ElementPtr _sdf)
+          {
+
+              if(!ros::isInitialized())
+              {
+                  int argc = 0;
+                  char **argv = NULL;
+                  ros::init(argc, argv, "Node_Name", ros::init_options::NoSigintHandler);
+                  std::cout<<"ROS node initialized"<<std::endl;
+              }
+
+              this->rosNode.reset(new ros::NodeHandle("Node_Name"));
+
+          }
+    };
+
+    GZ_REGISTER_<<<Plugin_Type_Caps>>>_PLUGIN(<<<Class_Name>>>Plugin)
+
+}

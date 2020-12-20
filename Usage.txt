@@ -1,0 +1,11 @@
+install directory:
+    This contains files to install core scripts and reference files to generate gazebo plugins in ROS hierarchy.
+
+reference directory:
+    Contains base scripts (templates for the plugin)
+
+file_tree.txt:
+    Contains the tree structure of the available files
+
+commands.txt:
+    Contains commands of usage
